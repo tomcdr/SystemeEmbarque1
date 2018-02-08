@@ -1,0 +1,80 @@
+
+tp:     format de fichier elf32-littlearm
+
+
+Déassemblage de la section .note.gnu.build-id :
+
+10000000 <.note.gnu.build-id>:
+10000000:	00000004 	andeq	r0, r0, r4
+10000004:	00000014 	andeq	r0, r0, r4, lsl r0
+10000008:	00000003 	andeq	r0, r0, r3
+1000000c:	00554e47 	subseq	r4, r5, r7, asr #28
+10000010:	227bccac 	rsbscs	ip, fp, #172, 24	; 0xac00
+10000014:	046b840f 	strbteq	r8, [fp], #-1039	; 0xfffffbf1
+10000018:	acf0228b 	lfmge	f2, 2, [r0], #556	; 0x22c
+1000001c:	6ddc5191 	ldfvse	f5, [ip, #580]	; 0x244
+10000020:	cf052725 	svcgt	0x00052725
+
+Déassemblage de la section .text :
+
+00000000 <vector_table>:
+   0:	00000000 	andeq	r0, r0, r0
+   4:	0000001b 	andeq	r0, r0, fp, lsl r0
+   8:	00000015 	andeq	r0, r0, r5, lsl r0
+   c:	00000015 	andeq	r0, r0, r5, lsl r0
+  10:	00000000 	andeq	r0, r0, r0
+
+00000014 <Dummy_Handler>:
+  14:	b580      	push	{r7, lr}
+  16:	af00      	add	r7, sp, #0
+  18:	e7fe      	b.n	18 <Dummy_Handler+0x4>
+
+0000001a <Reset_Handler>:
+  1a:	b580      	push	{r7, lr}
+  1c:	af00      	add	r7, sp, #0
+  1e:	f000 f808 	bl	32 <main>
+  22:	46c0      	nop			; (mov r8, r8)
+  24:	46bd      	mov	sp, r7
+  26:	bd80      	pop	{r7, pc}
+
+00000028 <system_init>:
+  28:	b580      	push	{r7, lr}
+  2a:	af00      	add	r7, sp, #0
+  2c:	46c0      	nop			; (mov r8, r8)
+  2e:	46bd      	mov	sp, r7
+  30:	bd80      	pop	{r7, pc}
+
+00000032 <main>:
+  32:	b580      	push	{r7, lr}
+  34:	af00      	add	r7, sp, #0
+  36:	f7ff fff7 	bl	28 <system_init>
+  3a:	e7fe      	b.n	3a <main+0x8>
+
+Déassemblage de la section .comment :
+
+00000000 <.comment>:
+   0:	3a434347 	bcc	10d0d24 <main+0x10d0cf2>
+   4:	65442820 	strbvs	r2, [r4, #-2080]	; 0xfffff7e0
+   8:	6e616962 	vnmulvs.f16	s13, s2, s5	; <UNPREDICTABLE>
+   c:	322e3720 	eorcc	r3, lr, #32, 14	; 0x800000
+  10:	362d302e 	strtcc	r3, [sp], -lr, lsr #32
+  14:	2e372029 	cdpcs	0, 3, cr2, cr7, cr9, {1}
+  18:	00302e32 	eorseq	r2, r0, r2, lsr lr
+
+Déassemblage de la section .ARM.attributes :
+
+00000000 <.ARM.attributes>:
+   0:	00003041 	andeq	r3, r0, r1, asr #32
+   4:	61656100 	cmnvs	r5, r0, lsl #2
+   8:	01006962 	tsteq	r0, r2, ror #18
+   c:	00000026 	andeq	r0, r0, r6, lsr #32
+  10:	726f4305 	rsbvc	r4, pc, #335544320	; 0x14000000
+  14:	2d786574 	cfldr64cs	mvdx6, [r8, #-464]!	; 0xfffffe30
+  18:	0600304d 	streq	r3, [r0], -sp, asr #32
+  1c:	094d070c 	stmdbeq	sp, {r2, r3, r8, r9, sl}^
+  20:	14041201 	strne	r1, [r4], #-513	; 0xfffffdff
+  24:	17011501 	strne	r1, [r1, -r1, lsl #10]
+  28:	19011803 	stmdbne	r1, {r0, r1, fp, ip}
+  2c:	1e021a01 	vmlane.f32	s2, s4, s2
+  30:	Adresse 0x0000000000000030 hors intervalle.
+

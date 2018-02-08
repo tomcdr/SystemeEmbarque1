@@ -1,0 +1,13 @@
+/home/eleve/JetBrain/clion-2017.3.3/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/eleve/SysEmb1/fromScratch
+-- The CXX compiler identification is unknown
+CMake Error at CMakeLists.txt:2 (project):
+  No CMAKE_CXX_COMPILER could be found.
+
+  Tell CMake where to find the compiler by setting either the environment
+  variable "CXX" or the CMake cache entry CMAKE_CXX_COMPILER to the full path
+  to the compiler, or to the compiler name if it is in the PATH.
+
+
+-- Configuring incomplete, errors occurred!
+See also "/home/eleve/SysEmb1/fromScratch/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+See also "/home/eleve/SysEmb1/fromScratch/cmake-build-debug/CMakeFiles/CMakeError.log".
